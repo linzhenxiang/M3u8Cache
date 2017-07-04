@@ -1,2 +1,2 @@
-*.com linguist-language=java
+*.app linguist-language=java
 *.hls linguist-language=kotlin
