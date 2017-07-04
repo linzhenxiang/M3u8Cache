@@ -1,2 +1,7 @@
 *.app linguist-language=java
-*.hls linguist-language=kotlin
+*.libs linguist-language=java
+*.release linguist-language=java
+*.src linguist-language=kotlin
+*.java linguist-language=java
+*.com linguist-language=java
+*.res linguist-language=java
