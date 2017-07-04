@@ -1,3 +1,2 @@
-*.java linguist-language=java
-*.kotlin linguist-language=kotlin
-*.libs linguist-language=kotlin
+*.com linguist-language=java
+*.hls linguist-language=kotlin
