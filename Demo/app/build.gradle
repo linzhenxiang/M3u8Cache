@@ -17,8 +17,17 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('hls.keystore')
+            storePassword '123456789'
+            keyPassword '123456789'
+            keyAlias 'hls'
         }
     }
 }
@@ -35,5 +44,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation files('libs/hls_cache.jar')
-    implementation files('libs/hls_parser.jar')
 }

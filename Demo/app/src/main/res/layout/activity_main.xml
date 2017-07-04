@@ -15,13 +15,13 @@
 
 
     <ProgressBar
-        android:max="100"
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_text"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:max="100" />
 
     <TextView
         android:id="@+id/bar_text"
@@ -34,24 +34,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/bottom"
         android:orientation="horizontal"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp">
+        android:padding="8dp"
+        android:paddingBottom="16dp">
 
         <Button
             android:id="@+id/start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="START" />
+            android:text="开始下载" />
 
         <Button
             android:id="@+id/pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="PAUSE" />
+            android:text="暂停" />
 
         <Button
             android:id="@+id/resume"
@@ -59,14 +59,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RESUME" />
+            android:text="继续下载" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="播放视频" />
 
         <Button
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="DELETE" />
+            android:text="删除下载文件" />
     </LinearLayout>
 
 

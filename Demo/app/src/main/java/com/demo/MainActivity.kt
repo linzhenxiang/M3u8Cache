@@ -1,5 +1,7 @@
 package com.demo
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -9,6 +11,9 @@ import com.hls.kotlin.HLSManager
 import com.hls.kotlin.ObserverManager
 import com.hls.kotlin.SampleObserver
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -79,7 +84,27 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(baseContext, "url is null", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            HLSManager.deleteDownloader(url.toString())
+            doAsync {
+                HLSManager.deleteDownloader(url.toString())
+                uiThread {
+                    progressBar.progress = 0
+                    bar_text.text = "0%"
+                    Toast.makeText(baseContext, "file has be deleted", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        }
+        play.setOnClickListener {
+            var url = edit_text.text
+            if (TextUtils.isEmpty(url)) {
+                Toast.makeText(baseContext, "url is null", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val intent = Intent(Intent.ACTION_VIEW)
+            val type = "video/mp4"
+            val uri = Uri.parse(HLSManager.getDownloadFilePath(url.toString()))
+            intent.setDataAndTypeAndNormalize(uri, type)
+            startActivity(intent)
         }
     }
 }
