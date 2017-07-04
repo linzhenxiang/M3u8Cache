@@ -1,2 +1,3 @@
 *.demo linguist-language=java
 *.release linguist-language=java
+*.res linguist-language=java
